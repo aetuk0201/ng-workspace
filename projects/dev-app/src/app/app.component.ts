@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DevFunctions } from 'dev-library';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'dev-app';
+
+  constructor() {
+
+    const devFunctions = new DevFunctions();
+    devFunctions.sayHello();
+    
+  }
 }
