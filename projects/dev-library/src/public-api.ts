@@ -4,3 +4,4 @@
 
 export * from './lib/dev-library.service';
 export * from './lib/dev-library.component';
+export * from './lib/dev-functions';
