@@ -1,0 +1,21 @@
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <select formControlName="albumSelect" class="selectControl" (change)="selectChangeHandler()">
+        <option value="" disabled>select an album</option>
+        <option *ngFor="let album of albums" [ngValue]="album">
+            {{album.title}}
+        </option>
+    </select>
+    <span class="newAlbum"> OR <input type="button" value="Create a new album" (click)="onCreateNewAlbum()"></span>
+
+     <p *ngIf="selectedAlbum"><span>You selected: </span><b>{{selectedAlbum.title}}</b></p>
+
+    <div *ngIf="album?.invalid && form?.dirty" class="error">
+		Album is required
+	</div>
+    
+  </div>
+</form>
+
+

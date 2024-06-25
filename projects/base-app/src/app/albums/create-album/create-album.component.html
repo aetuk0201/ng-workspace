@@ -1,0 +1,36 @@
+
+
+        <section class="col-4 p-4"> 
+            <div class="mt-2">
+                <app-alert *ngIf="showAlert" [color]="alertColor" >
+                        {{ alertMessage }}
+                </app-alert>
+            </div>
+
+            <form [formGroup]="albumForm">
+                <app-input 
+                    label="Album Name"
+                    [control]="albumName">       
+                </app-input>
+
+                <app-input 
+                    label="Description" 
+                    [control]="description">
+                </app-input>
+                
+                <!-- <div *ngIf="albumName.touched 
+                        && description.touched 
+                        && albumForm.errors" class="form-input-error"
+                    >
+                </div> -->
+                
+                <div class="col-auto">
+                    <button [disabled]="!albumForm.valid" 
+                            class="btn btn-outline-warning action-btn" 
+                            (click)="onNext()">
+                        Next
+                    </button>
+                </div>
+            </form>
+        </section>
+

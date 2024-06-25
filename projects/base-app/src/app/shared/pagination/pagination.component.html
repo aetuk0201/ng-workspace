@@ -1,0 +1,53 @@
+<ul *ngIf="pager && pager.pages?.length" class="pagination justify-content-center">
+    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item">
+        <a (click)="setPage(1)" class="page-link">First</a>
+    </li>
+    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item">
+        <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }" class="page-item">
+        <a (click)="setPage(page)" class="page-link">{{page}}</a>
+    </li>
+    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item">
+        <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+    </li>
+    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item">
+        <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
+    </li>
+</ul><ul *ngIf="pager && pager.pages?.length" class="pagination justify-content-center">
+
+
+<!-- main app container -->
+<!-- <div class="card m-3">
+    <h3 class="card-header text-center">Angular 14 - Paging and Sorting Table Data Example</h3>
+    <div class="card-body">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th><a (click)="sortBy('id')">Id {{sortIcon('id')}}</a></th>
+                    <th><a (click)="sortBy('firstName')">First Name {{sortIcon('firstName')}}</a></th>
+                    <th><a (click)="sortBy('lastName')">Last Name {{sortIcon('lastName')}}</a></th>
+                    <th><a (click)="sortBy('age')">Age {{sortIcon('age')}}</a></th>
+                    <th><a (click)="sortBy('company')">Company {{sortIcon('company')}}</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of pageOfItems">
+                    <td>{{item.id}}</td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.company}}</td>
+                </tr>
+                <tr *ngIf="loading">
+                    <td colspan="5" class="text-center py-5">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <pagination [items]="items" (changePage)="onChangePage($event)"></pagination>
+    </div>
+</div> -->

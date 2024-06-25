@@ -1,0 +1,61 @@
+@import '../../../styles/abstracts/variables';
+
+
+.photo {
+    width: 18rem; 
+    height: 20rem;
+    margin: 1rem;
+    border-radius: 5px;
+    border: .2rem solid $color-grey-dark;
+    background-color: rgba($color-white, .8);
+    font-size: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    transition: all .5s ease-out;
+
+    //opacity: 0;
+    //visibility: hidden;
+
+    &:hover {
+        //transform: rotateY(180deg);
+
+        // transform: translateY(-1.5rem) scale(1.03);
+        box-shadow: 0 2.5rem 4rem rgba($color-black, .2);
+    }
+
+    &-body {
+        padding: .5rem;
+        background-color: $color-white;
+    }
+
+    &__image {
+        width: 16rem;
+        height: 18rem;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    &__icon {        
+        //background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark); 
+        //color: transparent;
+
+        height: 4rem;
+        width: 4rem;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+        //fill: $color-grey-light-1;
+    }
+
+}

@@ -1,0 +1,9 @@
+
+.alert-message {
+  border-radius: .4rem;
+  font-weight: 500;
+  color: white;
+  padding: .4rem;
+  margin-bottom: .4rem;
+  z-index: 9999;
+}

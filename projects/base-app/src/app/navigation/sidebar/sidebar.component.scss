@@ -1,0 +1,79 @@
+
+$color-grey-light-1: #faf9f9;
+$color-secondary-light: #566573;
+
+/* Keyfamres - steps for animation */
+@keyframes fade-in-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-5rem); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0rem); 
+    }
+}
+
+.sidebar-menu {
+    background-color: #10171a;
+    align-self: center;
+    font-size: 2rem;
+
+    &__button {
+        padding: 2rem 0;
+        color: $color-grey-light-1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transition: all 0.4s;
+        animation: fade-in-from-left 0.5s;        
+    }
+
+    &__button:hover,
+    &__button:focus {
+        color: #fff;
+        background-color: #5b6a70;
+        padding: 2rem 0;
+        cursor: pointer;
+    }
+
+    &__button--active {
+        color: #fff;
+        background-color: #2B363B;
+        position: relative;
+    }
+
+     /* This is the pseudo element that is used to create the active bar */
+    &__button--active::before {
+        content: '';
+        width: .3rem;
+        height: 100%;
+        background-color: #375BB6;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+        fill: $color-grey-light-1;
+    }
+
+    &__text {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+}
+

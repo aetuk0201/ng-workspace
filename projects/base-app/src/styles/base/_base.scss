@@ -1,0 +1,64 @@
+
+
+// RESET
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+//End Reset
+
+html {
+    //1rem = 16px (default browser font-size) 
+    // if you desire 1rem = 10px, then set the value to 62.5% (10/16 = 0.625)
+    font-size: 62.5%; // 1rem = 12px (12/16 = 0.75)
+}
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    font-family: $font-primary;
+    color: $color-font-primary;   
+    background-color: $color-grey-light-1;
+    box-sizing: border-box;  
+    
+    display: grid;
+    grid-template-rows: 8vh 1fr 5vh;
+    grid-template-columns: minmax(6rem, 7rem) 1fr;
+
+    //select all descendants of .app
+    // & > * {
+    //     border: 1px solid red;
+    // }
+
+    //select all descendants of .app with focus
+    // & > *:focus {
+    //     border: 1px solid blue;
+    //}
+}
+
+
+
+
+
+/* Media Queries */
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { }
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { }
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { }
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) { }
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) { }
+
+/*  we need to subtract 0.02px - this is due to the issue with 
+using min- and max- prefixes range features (see https://www.w3.org/TR/mediaqueries-4/#mq-min-max) */

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+<html class=""></html>
+<h3>Create an Account</h3>
+<form [formGroup]="authForm" (ngSubmit)="onSubmit">
+
+        <!-- <div class="form-group mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input formControlName="username" type="text" class="form-control" />
+        </div> -->
+        <app-input label="Username" [control]="username"></app-input>
+        {{ authForm.get('username')?.errors | json }}
+
+        <app-input label="Email" [control]="email" inputType="email"></app-input>
+         {{ authForm.get('email')?.errors | json }}
+
+        <app-input label="Password" [control]="password" inputType="password"></app-input>
+        {{ authForm.get('password')?.errors | json }}
+        
+        <app-input label="Confirm Password" [control]="passwordConfirmation" inputType="password"></app-input>
+        {{ authForm.get('passwordConfirmation')?.errors | json }}
+
+        <div *ngIf="authForm.get('password')?.touched &&
+                    authForm.get('passwordConfirmation')?.touched &&
+                    authForm.errors"
+                    class="input-error">
+
+             <p *ngIf="authForm.errors?.['passwordsDontMatch']">
+                Passwords do not match
+            </p>
+
+            <p *ngIf="authForm.errors?.['noConnection']">
+               No internet connection or server is down
+            </p>
+
+            <p *ngIf="authForm.errors?.['unknownError']">
+               An unknown error occurred    
+            </p>
+
+        </div>
+       
+
+        <div class="col-auto">
+             <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            {{ authForm.errors | json }}
+        </div>
+       
+
+</form>
+
+    </div>
+</div>

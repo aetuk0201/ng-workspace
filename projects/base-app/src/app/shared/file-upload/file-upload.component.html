@@ -1,0 +1,109 @@
+
+<section class="p-5 drop-container" *ngIf="!isSuccess">
+
+    <div class="row">
+
+        <app-alert *ngIf="showAlert" [color]="alertColor">
+            <p>
+                {{ alertMessage }} 
+                <span *ngIf="showPercentCompleted">- {{ percentCompleted | percent: '1.0-2'}} {{ 'completed'}} </span>
+            </p>
+        </app-alert>
+
+        <ng-container *ngIf="!isReadyToUpload; else uploadForm" >          
+            <div
+                app-event-blocker 
+                (dragend)="isDragover = false"
+                (dragover)="isDragover = true"
+                (dragenter)="isDragover = true"
+                (dragleave)="isDragover = false"
+                (mouseleave)="isDragover = false"
+                (drop)="prepareForUpload($event)"
+                [ngClass]="{'file-dropzone--dragover': isDragover}"
+                class="file-dropzone"
+            >     
+                <h2>Drag and drop a file(s) here</h2>
+
+                <h4>OR</h4>
+
+                <div class="m-3">
+                    <input type="file" class="form-control-file m-2" (change)="prepareForUpload($event)" multiple>
+                </div>
+
+            </div>
+
+            
+
+        </ng-container>
+    </div>
+
+    
+
+    <ng-template #uploadForm>           
+
+        <form [formGroup]="fileUploadForm">
+            <div class="row">
+
+                <section *ngIf="photos.length > 0">
+                    <h3>You are about to upload the following photo(s) to album: {{ album?.title }}</h3>
+                    <hr>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>File Size</th>
+                                <th>File Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let photo of photos">
+                                <td>{{ photo?.photoName }}</td>
+                                <td>{{ (photo?.file?.size ?? 0)/1000000 | number: '1.1-2' }} MB </td>
+                                <td>{{ photo?.file?.type }}</td>                               
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+                <section>
+                    <button [disabled]="inProcess" 
+                            [ngClass]="{'btn btn-secondary action-btn': inProcess, 'btn btn-outline-success action-btn': !inProcess}"
+                            class="btn btn-outline-success action-btn" 
+                            (click)="uploadFile()"
+                            #uploadBtn>
+                            Upload File
+                    </button>
+                    <button class="btn btn-outline-warning mr-3 action-btn" 
+                            (click)="onBackBtn()">
+                            Back
+                    </button>
+                    <!-- <button class="btn btn-primary action-btn" (click)="onReUpload()" *ngIf="!showReUploadBtn">Upload Another File</button> -->
+                    <!-- <button class="btn btn btn-secondary mr-3 action-btn m-2" (click)="onCancel()" *ngIf="!showRetryBtn">Cancel</button> -->
+                    <!-- <button class="btn btn-primary action-btn" (click)="onRetryUpload()" *ngIf="showRetryBtn">Retry Upload</button> -->
+                </section>
+               
+            </div>
+        </form>
+    </ng-template>
+        
+    <button class="btn btn-outline-warning mr-3 action-btn" 
+        (click)="onBackBtn()"
+        *ngIf="!isReadyToUpload">
+        Back
+    </button>
+
+</section>
+
+<div #uploadSuccess *ngIf="isSuccess">
+    <div class="row">
+        <div class="col-12">
+            <h2>Upload Successful</h2>
+            <hr>
+            <p>Click the button below to view your album</p>
+            <button class="btn btn-outline-secondary action-btn" (click)="onViewAlbum()">View Album</button>
+            <button class="btn btn-outline-secondary action-btn" (click)="onViewAlbum()">View All Albums</button>
+            <button class="btn btn-outline-warning action-btn" (click)="onReUpload()" *ngIf="!showReUploadBtn">Upload More Photos</button>
+        </div>
+    </div>
+</div>

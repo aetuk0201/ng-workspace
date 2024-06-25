@@ -1,0 +1,55 @@
+
+.menu__button {
+    
+    padding: 0.5rem 1.5rem;
+    width: 100%;
+    height: 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    background-color: rgb(97, 97, 97);
+    color: white;
+ 
+}
+
+.menu__button--active {
+    background-color: #a0dcf3;
+    color: #333;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+     padding: 0.5rem 1.5rem;
+}
+
+.menu__button--active[type="button"] {
+    width: 100%;
+}
+
+.menu__button--active::after {
+    content: '-';   
+    right: 0;
+    width: 
+    40px;
+    color: red;
+}
+
+.menu__button--inactive {
+    background-color: #a0dcf3;
+    color: #333;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+
+.menu__button--inactive[type="button"] {
+    width: 100%;
+}
+
+.menu__button--inactive::after {
+    content: '+';
+   
+    right: 0;
+    width: 40px;
+    color: red;
+}

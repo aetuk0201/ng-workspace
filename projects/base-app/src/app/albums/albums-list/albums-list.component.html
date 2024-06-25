@@ -1,0 +1,14 @@
+
+<!-- <div *ngFor="let photo of photos">
+    <img [src]="photo.urlLink" [alt]="photo.photoName" class="image">
+</div> -->
+
+<div  class="albums">
+    <div *ngFor="let album of albums">
+        <a [routerLink]="['/albums/album-detail', album.albumId]">
+            <app-album [album]="album"></app-album>
+        </a>
+    </div>
+</div>
+
+

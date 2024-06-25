@@ -1,0 +1,34 @@
+<h3>Sign In</h3>
+
+<form [formGroup]="authForm" (ngSubmit)="onSubmit">
+    <app-input 
+        label="Username" 
+        [control]="username">        
+    </app-input>
+
+    <app-input 
+        label="Password" 
+        [control]="password" 
+        inputType="password">
+    </app-input>
+    
+    <div *ngIf="authForm.get('username')?.touched 
+            && authForm.get('password')?.touched 
+            && authForm.errors" class="input-error"
+        >
+        <p *ngIf="authForm.errors?.['invalidCredentials']">
+            Invalid Credentials
+        </p>
+    
+        <p *ngIf="authForm.errors?.['unknownError']">
+        An unknown error occurred
+        </p>
+
+    </div>
+    
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">
+        Submit
+        </button>
+    </div>
+</form>

@@ -1,0 +1,11 @@
+
+.signup-container {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.input-error {
+    color: red;
+}

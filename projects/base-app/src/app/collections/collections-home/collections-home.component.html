@@ -1,0 +1,68 @@
+<app-table  [classNames]="classNames" [data]="data" [headers]="headers"></app-table>
+
+<app-tabs>
+
+        <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" type="button" role="tab" >
+                         <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" >Biography</a> 
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">
+                        <a routerLink="./companies" routerLinkActive="active">Companies</a> 
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                        <a routerLink="./partners" routerLinkActive="active">Partners</a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+                </li>
+        </ul> -->
+
+</app-tabs>
+
+
+<!-- main app container -->
+<div class="card m-3">
+    <h3 class="card-header text-center">Paging and Sorting Table Data Example</h3>
+    <div class="card-body">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <!-- <th><a (click)="sortBy('id')">Id {{sortIcon('id')}}</a></th> -->
+                    <!-- <th><a (click)="sortBy('firstName')">First Name {{sortIcon('firstName')}}</a></th> -->
+                    <th><a (click)="sortBy('name')">Last Name {{sortIcon('name')}}</a></th>
+                    <th><a (click)="sortBy('age')">Age {{sortIcon('age')}}</a></th>
+                    <th><a (click)="sortBy('job')">Age {{sortIcon('job')}}</a></th>
+                    <!-- <th><a (click)="sortBy('company')">Company {{sortIcon('company')}}</a></th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of pageOfItems">
+                    <!-- <td>{{item.id}}</td>
+                    <td>{{item.firstName}}</td> -->
+                    <td>{{data.name}}</td>
+                    <td>{{data.age}}</td>
+                    <td>{{data.job}}</td>
+                    <!-- <td>{{item.company}}</td> -->
+                </tr>
+                <tr *ngIf="loading">
+                    <td colspan="5" class="text-center py-5">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <pagination [items]="data" (changePage)="onChangePage($event)"></pagination>
+    </div>
+</div>
+
+
+
+

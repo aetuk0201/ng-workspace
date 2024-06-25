@@ -1,0 +1,37 @@
+
+
+
+<div class="photos">
+    <div *ngFor="let photo of photos">
+        <!-- <app-photo (toggleActive)="toggle()" [photo]="photo"></app-photo> -->
+        <!-- <app-photo-preview [open]="isOpen" [photo]="photo"></app-photo-preview>   -->            
+               <!-- <app-modal>
+                    <app-photo [photo]="photo"></app-photo>
+               </app-modal> -->
+
+            <a href="#" (click)="openModal($event)">              
+               <app-modal slot="body">
+                   testing.....
+               </app-modal>
+               here is the link
+            </a>
+
+    </div>
+</div>
+
+<!-- <div class="popup" id="popup">
+                <div class="popup__content">
+                    <div class="popup__left">
+                        <img [src]="photo?.urlLink" [alt]="photo?.photoName" class="popup__img">
+                    </div> -->
+                    <!-- <div class="popup__right">
+                        <a href="#section-tours" class="popup__close">&times;</a>
+                        <h2 class="heading-secondary u-margin-bottom-small">{{ photo?.photoName }}</h2>
+                        <h3 class="heading-tertiary u-margin-bottom-small">{{ photo?.title }}</h3>
+                        <p class="popup__text">
+                            {{ photo?.description }}
+                        </p>
+                    </div> -->
+                <!-- </div>
+            </div> -->
+

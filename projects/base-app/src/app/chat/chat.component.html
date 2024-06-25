@@ -1,0 +1,11 @@
+<section>
+  <h1>Chat with GPT</h1>
+  <textarea [(ngModel)]="prompt" placeholder="Enter your prompt here"  cols="80" row="50"></textarea><br>
+  <button class="btn btn-secondary" (click)="sendPrompt()">Send</button>
+  <div class="response" *ngIf="response">
+    <h2>Response</h2>
+    <p>{{ response }}</p>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="generateImage()">Generate Image</button>
+</section>

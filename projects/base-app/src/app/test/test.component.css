@@ -1,0 +1,11 @@
+
+:host {
+    background-color: rgb(137, 197, 176);
+    font-size: 24px;
+    display: block;
+}
+
+.bg {
+    background-color: rgb(97, 54, 109);
+    color: rgb(131, 31, 31);
+}

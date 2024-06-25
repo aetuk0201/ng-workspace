@@ -1,0 +1,57 @@
+@import '../../../styles/abstracts/variables';
+
+.image {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.album {
+    width: 18rem; 
+    height: 20rem;
+    margin: 1rem;
+    border-radius: 5px;
+    border: .2rem solid $color-grey-dark;
+    background-color: rgba($color-white, .8);
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    transition: transform .3s ease-out;
+    //background-image: linear-gradient(to right, #1e5799 30%, #2989d8 51%, #207cca 100%);
+
+    &-body {
+        padding: 1rem;
+        background-color: $color-white;
+
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    &__icon {        
+        //background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark); 
+        //color: transparent;
+
+        height: 4rem;
+        width: 4rem;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+        //fill: $color-grey-light-1;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+        box-shadow: 0 2.5rem 4rem rgba($color-black, .2);
+    }
+
+}

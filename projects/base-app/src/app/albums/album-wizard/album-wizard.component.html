@@ -1,0 +1,40 @@
+<div class="card">
+
+    <div class="card-body">
+        <div class="wizard">
+            <a [routerLink]="['createAlbum']" routerLinkActive="active">
+                Create Album
+                <span title="invalid form" #createAlbumLink></span>
+            </a>
+            <a [routerLink]="['photoUpload']" routerLinkActive="active" (click)="validateForm('createAlbum', true)">
+                Upload Photos
+                <!-- <span [ngClass]="{'fa fa-exclamation': isFormValid }"></span> -->
+            </a>
+        </div>
+
+                <app-alert *ngIf="showAlert" [color]="alertColor" class="mt-2">
+                        {{ alertMessage }}
+                </app-alert>        
+
+        <div class="co-6">
+            <router-outlet></router-outlet>
+        </div>
+        
+    </div>
+
+    <!-- <div class="row mb-4" style="margin-left: 10px;">
+        <div class="col-md-4">
+            <button class="btn btn-primary mr-3 action-btn">
+                Save
+            </button>
+            <button class="btn btn-outline-secondary mr-3 action-btn"
+                    title="Cancel"
+                    [routerLink]="['/wizard']">
+                Cancel
+            </button>
+            <button class="btn btn-outline-warning action-btn">
+                Delete
+            </button>
+        </div>
+    </div> -->
+</div>

@@ -1,0 +1,22 @@
+
+<div class="accordion">
+    <ng-container *ngFor="let items of menuitems let i = index">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+            <button [ngClass]="{ 'menu__button menu__button--active collapse show': i === openedItemIndex,
+                                 'menu__button menu__button--inactive collapse': i !== openedItemIndex }" 
+                    (click)="onClick(i)" 
+                    type="button">
+                {{ items.menuHeader}}    
+            </button>           
+            </h2>
+                <div [ngClass]="{ 'collapse show': i === openedItemIndex, 'collapse': i !== openedItemIndex}">
+                    <ng-container *ngFor="let menuItem of items.menuItems">
+                    <div class="accordion-body">
+                        <a href="#"> {{ menuItem.item }} </a>    
+                    </div> 
+                    </ng-container>               
+                </div>            
+        </div>
+    </ng-container>
+</div>

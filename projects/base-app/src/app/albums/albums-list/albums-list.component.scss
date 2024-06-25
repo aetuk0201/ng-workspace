@@ -1,0 +1,16 @@
+.image {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.albums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
+    grid-template-rows: repeat(auto-fit, minmax(22rem, 22rem));
+    // grid-template-columns: repeat(4, 20rem);
+    // grid-template-rows: repeat(auto-fit, 20rem);
+    justify-content: start;
+    margin: 2rem;
+}

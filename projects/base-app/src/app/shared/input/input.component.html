@@ -1,0 +1,40 @@
+<div class="col-auto mb-3">  
+  <div class="form-group">
+    <label class="form-label">{{ label }}</label>
+    <input
+      class="form-control"      
+      [formControl | undefined]="control"
+      [type]="inputType"
+      [placeholder]= "placeholder"
+    />
+    <!-- [ngClass]="{ 'input-error': showErrors() }" -->
+  </div>
+
+  <div *ngIf="showErrors()" class="form-input-error">
+    <p *ngIf="control?.errors?.['required']">
+      {{ label }} is required.
+    </p>
+    <p *ngIf="control?.errors?.['minlength']">
+      Value you entered is
+      {{ control?.errors?.['minlength.actualLength'] }}
+      the value must be at least
+      {{ control?.errors?.['minlength.requiredLength'] }}
+      characters in length
+    </p>
+    <p *ngIf="control?.errors?.['maxlength']">
+      Value you entered is
+      {{ control?.errors?.['maxlength.actualLength'] }}
+      characters long, but it cannot be longer than
+      {{ control?.errors?.['maxlength.requiredLength'] }}
+      characters
+    </p>
+    <p *ngIf="control?.errors?.['pattern']">
+      Invalid format
+    </p>
+    <p *ngIf="control?.errors?.['email']">
+      Invalid email
+    </p>
+  </div>
+</div>
+
+
