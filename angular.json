@@ -84,7 +84,14 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": false,
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "extractLicenses": false,
               "sourceMap": true
             }
@@ -157,7 +164,8 @@
               "projects/base-app/src/assets"
             ],
             "styles": [
-              "projects/base-app/src/styles/styles.scss"
+              "projects/base-app/src/styles/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -178,7 +186,14 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": false,
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "extractLicenses": false,
               "sourceMap": true
             }
@@ -218,6 +233,120 @@
             ],
             "styles": [
               "projects/base-app/src/styles/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "security": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/security",
+      "sourceRoot": "projects/security/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/security",
+            "index": "projects/security/src/index.html",
+            "browser": "projects/security/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/security/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/security/public"
+              }
+            ],
+            "styles": [
+              "projects/security/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+                "oidc-client"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1MB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "security:build:production"
+            },
+            "development": {
+              "buildTarget": "security:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/security/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/security/public"
+              }
+            ],
+            "styles": [
+              "projects/security/src/styles.scss"
             ],
             "scripts": []
           }

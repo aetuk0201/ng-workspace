@@ -9,7 +9,7 @@ export class OpenAiService {
 
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
   private imgUrl = 'https://api.openai.com/v1/images/generations';
-  private apiKey = '';
+  private apiKey = 'sk-proj-TkzFpIdLqxZdXd89dvSeT3BlbkFJ4mI9NcLZWJOfsxX5393H';
 
   constructor(private http: HttpClient) { }
 

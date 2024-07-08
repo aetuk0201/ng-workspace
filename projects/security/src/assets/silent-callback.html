@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Affair</title>
+    <script src="../../../../node_modules/oidc-client/dist/oidc-client.min.js"></script>
+</head>
+<body>
+    <script>
+        const stsSettings = {
+            authority: 'https://localhost:5800/',
+            client_id: 'familyaffair-client',
+            scope: 'openid profile familyaffair.fullaccess',
+            response_type: 'code'
+        };
+
+        new Oidc.UserManager(stsSettings).signinSilentCallback().catch(error => {
+            console.error(error);
+        });
+        
+    </script>
+</body>
+</html>
