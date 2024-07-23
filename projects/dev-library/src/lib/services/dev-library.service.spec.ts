@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DevLibraryService } from './dev-library.service';
+import { DevLibraryService } from './services/dev-library.service';
 
 describe('DevLibraryService', () => {
   let service: DevLibraryService;

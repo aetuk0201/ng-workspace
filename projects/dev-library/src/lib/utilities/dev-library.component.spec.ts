@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DevLibraryComponent } from './dev-library.component';
+import { DevLibraryComponent } from '../components/dev-library.component';
 
 describe('DevLibraryComponent', () => {
   let component: DevLibraryComponent;

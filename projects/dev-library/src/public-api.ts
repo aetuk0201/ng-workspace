@@ -2,6 +2,6 @@
  * Public API Surface of dev-library
  */
 
-export * from './lib/dev-library.service';
-export * from './lib/dev-library.component';
-export * from './lib/dev-functions';
+export * from './lib/services/dev-library.service';
+export * from './lib/components/dev-library.component';
+export * from './lib/utilities/dev-functions';
