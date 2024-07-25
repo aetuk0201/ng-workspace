@@ -1,0 +1,40 @@
+
+.modal {
+    display: fixed;
+    overflow-y: auto;
+    z-index: 2000;
+}
+
+app-modal {
+    display: block;
+    
+    .app-modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        inset: 0;
+
+        /* z-index must be higher than everything else on the page */
+        z-index: 10000;
+        
+        /* semi-transparent black background exposed by padding */
+        background-color: rgba(0, 0, 0, .75);
+        padding: 40px;
+
+        /* enables scrolling for tall modals */
+        overflow: auto;
+
+    }
+
+    .app-modal__body {
+        /* modal body */
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+}
+
+body.app-modal__open {
+    overflow: hidden;
+}
